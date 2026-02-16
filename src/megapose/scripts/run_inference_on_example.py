@@ -4,6 +4,8 @@ import json
 import os
 from pathlib import Path
 from typing import List, Tuple, Union
+import cv2
+from scipy.spatial.transform import Rotation
 
 # Third Party
 import time
@@ -178,6 +180,16 @@ def make_output_visualization(
         render_normals=False,
         copy_arrays=True,
     )[0]
+
+    """
+    pose = json.load(open(Path(example_dir / "outputs" / "object_data.json")))[0]['TWO']
+    rvec = Rotation.from_quat(pose[0]).as_rotvec()
+    tvec = np.array(pose[1])
+    cv2.drawFrameAxes(rgb, camera_data.K, np.zeros((5,)), rvec, tvec, 0.3, thickness=3)
+    cv2.imshow("", rgb)
+    cv2.waitKey(0)
+    exit(0)
+    """
 
     plotter = BokehPlotter()
 

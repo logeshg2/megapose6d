@@ -51,7 +51,7 @@ def load_named_model(
     model_name: str,
     object_dataset: RigidObjectDataset,
     n_workers: int = 4,
-    bsz_images: int = 32,
+    bsz_images: int = 128,
 ) -> PoseEstimator:
 
     model = NAMED_MODELS[model_name]
