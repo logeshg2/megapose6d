@@ -60,7 +60,7 @@ class PoseEstimator(torch.nn.Module):
         depth_refiner: Optional[DepthRefiner] = None,
         bsz_objects: int = 8,
         bsz_images: int = 256,
-        SO3_grid_size: int = 576,
+        SO3_grid_size: int = 72,
     ) -> None:
 
         super().__init__()

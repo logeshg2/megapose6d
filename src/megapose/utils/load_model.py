@@ -51,7 +51,7 @@ def load_named_model(
     model_name: str,
     object_dataset: RigidObjectDataset,
     n_workers: int = 4,
-    bsz_images: int = 128,
+    bsz_images: int = 32,
 ) -> PoseEstimator:
 
     model = NAMED_MODELS[model_name]
@@ -83,7 +83,7 @@ def load_named_model(
         coarse_model=coarse_model,
         detector_model=None,
         depth_refiner=depth_refiner,
-        bsz_objects=8,
+        bsz_objects=4,
         bsz_images=bsz_images,
     )
     return pose_estimator

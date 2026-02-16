@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import List, Tuple, Union
 
 # Third Party
+import time
 import numpy as np
 from bokeh.io import export_png
 from bokeh.plotting import gridplot
@@ -140,9 +141,11 @@ def run_inference(
     pose_estimator = load_named_model(model_name, object_dataset).cuda()
 
     logger.info(f"Running inference.")
+    t = time.perf_counter()
     output, _ = pose_estimator.run_inference_pipeline(
         observation, detections=detections, **model_info["inference_parameters"]
     )
+    print(f"Time taken for single image: {time.perf_counter() - t}")
 
     save_predictions(example_dir, output)
     return
