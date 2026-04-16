@@ -2,3 +2,8 @@
 *
 # Except this file
 !.gitignore
+!examples/
+!examples/box/
+!examples/box/*
+!examples/box/*/*
+!examples/box/*/*/*
